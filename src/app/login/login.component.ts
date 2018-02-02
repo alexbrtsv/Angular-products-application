@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
+
 import { AuthService } from '../shared/auth.service';
 
 @Component({
@@ -24,7 +25,6 @@ export class LoginComponent implements OnInit {
       } else {
         this.error = true;
         this.errorMessage = result;
-        // console.log(result);
       }
     });
   }

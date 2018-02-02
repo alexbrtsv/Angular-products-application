@@ -1,14 +1,49 @@
 <div *ngIf="product">
 	<div class="container">
+		<div class="page-header">
+			<h1 class="text-uppercase">{{product.title}}</h1>
+		</div>
 		<div class="row">
-			<div class="col-md-6 col-sm-12 col-xs-12">
-				<h4 class="product-title">{{product.title}}</h4>
+			<div class="col-md-6 col-sm-12 col-xs-12"> 
 				<div class="product-img">
-					<img src="http://smktesting.herokuapp.com/static/{{product.img}}" alt="">
+					<img src="https://smktesting.herokuapp.com/static/{{product.img}}" alt="">
 				</div>
+				<hr>
 				<p class="product-description">{{product.text}}</p>
 			</div>
-			<div class="col-md-6 col-sm-12 col-xs-12"></div>
+			<div class="col-md-6 col-sm-12 col-xs-12">
+				<h3 class="comments-title text-center">Comments</h3>
+				<div class="alert alert-warning" *ngIf="!isAuth()" role="alert">
+					You must <a [routerLink]="['/login']" class="alert-link">Login</a> to post comments
+				</div>
+				<div *ngIf="isAuth()" class="comment-form-wrap">
+					<form [formGroup]="myForm" (ngSubmit)="onPostComment()">
+						<div class="form-group">
+							<label for="text">Comment:</label>
+							<textarea class="form-control" formControlName="text"  id="text" placeholder="Write your comment here..."></textarea>
+						</div>
+						<div class="form-group">
+							<label for="rate">Rate:</label>
+							<input class="form-control" formControlName="rate" type="number" size="3" min="1" step="1" max="5" value="1" id="rate">
+						</div>
+						<button class="btn btn-info btnpost" type="submit" [disabled]="!myForm.valid">Post Comment</button>
+						<div *ngIf="error" class="alert alert-danger">{{errorMessage}}</div>
+					</form>
+				</div>
+				<div class="comments-wrap">
+					<div *ngFor="let comment of comments" class="comment_item-wrap">
+						<div class="panel panel-info comment_item">
+							<div class="panel-heading">
+								<span class="comment-author"><strong>{{comment.created_by.username}}</strong></span> <span class="comment-time pull-right"><span></span> at {{comment.created_at | date:'shortDate'}}</span>
+							</div>          
+							<div class="panel-body">
+								<p class="comment-text"><strong>Rate: </strong> <span class="rate">{{comment.rate}}</span></p>
+								<p class="comment-text"><strong>Comment: </strong>{{comment.text}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>  
 		</div>
 	</div>
 </div> 

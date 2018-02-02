@@ -5,7 +5,7 @@
 				<div class="thumbnail product-wrap">
 					<img src="https://smktesting.herokuapp.com/static/{{product.img}}" alt="">
 					<div class="caption">
-						<p class="text-center"><a class="btn btn-info product-link text-uppercase" role="button">{{product.title}}</a></p>
+						<p class="text-center"><a (click)="gotoItem(product.id)"class="btn btn-info product-link text-uppercase" role="button">{{product.title}}</a></p>
 					</div>
 				</div>
 			</div>

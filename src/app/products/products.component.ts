@@ -11,10 +11,13 @@ export class ProductsComponent implements OnInit {
 
 	products: Product[];
 
-	constructor(private productsService: ProductsService){}
+	constructor(private productsService: ProductsService, private router: Router){}
 
 	ngOnInit(){
 		this.productsService.getProducts().then(products => this.products = products);
 	}
 
+  gotoItem(id): void {
+    this.router.navigate(['/product', id]);
+  }
 }
