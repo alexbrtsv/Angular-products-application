@@ -11,7 +11,11 @@ import { HeaderComponent } from './header/header.component';
 import { ProductsComponent } from './products/products.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { ProductItemComponent } from './products/product-items/product-item.component';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
 
+import { ProductsService } from './products/products.service';
+import { AuthService } from './shared/auth.service';
 
 @NgModule({
   declarations: [
@@ -19,15 +23,18 @@ import { RegistrationComponent } from './registration/registration.component';
     HeaderComponent,
     ProductsComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ProductItemComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ProductsService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+header{
+	margin-bottom: 8vw;
+}
+
+.navbar-nav {
+	width: 100%;
+	text-align: center;
+}
+
+.navbar-nav>li {
+	float: none;
+	display: inline-block;
+}
+
+.navbar-nav>li>a{
+	font-size: 18px; 
+}
+
+.not-found {
+	display: flex;
+	justify-content: center;
+	width: 100vw;
+	height: 100vh;
+}

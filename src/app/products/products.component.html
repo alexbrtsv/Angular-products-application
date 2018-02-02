@@ -1,1 +1,14 @@
-<h1>product</h1>
+<div class="products-wrap">
+	<div class="container">
+		<div class="row">
+			<div *ngFor="let product of products" class="col-md-3 col-sm-4 col-xs-12 col-md-offset-2 col-sm-offset-1 col-xs-offset-1">
+				<div class="thumbnail product-wrap">
+					<img src="https://smktesting.herokuapp.com/static/{{product.img}}" alt="">
+					<div class="caption">
+						<p class="text-center"><a class="btn btn-info product-link text-uppercase" role="button">{{product.title}}</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,14 @@
+<div *ngIf="product">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-sm-12 col-xs-12">
+				<h4 class="product-title">{{product.title}}</h4>
+				<div class="product-img">
+					<img src="http://smktesting.herokuapp.com/static/{{product.img}}" alt="">
+				</div>
+				<p class="product-description">{{product.text}}</p>
+			</div>
+			<div class="col-md-6 col-sm-12 col-xs-12"></div>
+		</div>
+	</div>
+</div> 
