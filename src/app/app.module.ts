@@ -16,6 +16,7 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 import { ProductsService } from './products/products.service';
 import { AuthService } from './shared/auth.service';
+import { AuthGuard } from './shared/auth.guard';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { AuthService } from './shared/auth.service';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [ProductsService, AuthService],
+  providers: [ProductsService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

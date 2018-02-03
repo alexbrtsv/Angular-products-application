@@ -9,13 +9,14 @@ import { Comment } from '../shared/models/comment';
 @Injectable()
 export class ProductsService {
 
+	baseUrl = "https://smktesting.herokuapp.com/api/";
 	products: Product[] = [];
 	comments: Comment[];
 
 	constructor(private http: Http) {}
 
 	getProducts(): Promise<Product[]> {
-		return this.http.get('https://smktesting.herokuapp.com/api/products/')
+		return this.http.get(this.baseUrl + 'products/')
 		.toPromise()
 		.then(res => res.json())
 		.then(products => this.products = products);
@@ -27,7 +28,7 @@ export class ProductsService {
 	}
 
 	getComments(id: number): Promise<Comment[]> {
-		return this.http.get('https://smktesting.herokuapp.com/api/reviews/' + id)
+		return this.http.get(this.baseUrl + 'reviews/' + id)
 		.toPromise()
 		.then(res => res.json() as Comment[]);
 	}
@@ -35,7 +36,7 @@ export class ProductsService {
 	postComment(comment, id): Observable<any> {
 		let headers = new Headers({'Authorization' : 'Token '+localStorage.getItem('currentUser')});
 		let options = new RequestOptions({ headers: headers });
-		return this.http.post('https://smktesting.herokuapp.com/api/reviews/'+ id, comment, options);
+		return this.http.post(this.baseUrl + 'reviews/'+ id, comment, options);
 	}
 
 }

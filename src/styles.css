@@ -48,3 +48,34 @@ header{
 	height: 200px;
 	width: auto;
 }
+
+@media (max-width: 768px) {
+	.navbar {
+		position: static;
+	}
+	body {
+		margin-top: 0;
+	}
+	.product-wrap {
+		width: 50%;
+		margin: 0 auto;
+	}
+	.thumbnail>img {
+		height: auto;
+	}
+}
+
+@media (max-width: 440px) {
+	.product-wrap {
+		width: 90%;
+	}
+	
+	.page-header h1{
+		font-size: 2rem;
+	}
+
+	.product-img img{
+		width: 70%;
+		height: 70%;
+	}
+}

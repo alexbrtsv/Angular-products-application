@@ -6,15 +6,15 @@ import { ProductItemComponent }  from './products/product-items/product-item.com
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { AuthGuard }  from './shared/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/products', pathMatch: 'full' },
   { path: 'products',  component: ProductsComponent },
   { path: 'product/:id', component: ProductItemComponent },
-  { path: 'registration', component: RegistrationComponent },
-  { path: 'login', component: LoginComponent },
-  { path: '**', component: NotFoundComponent },
-
+  { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
+  { path: 'registration', component: RegistrationComponent, canActivate: [AuthGuard] },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
