@@ -1,5 +1,7 @@
 # FrontDevTestApplication
 
+Angular v.5.2.0
+
 To run the application:
 
 1.Install node.js (https://nodejs.org/uk/)
